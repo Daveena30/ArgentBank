@@ -1,0 +1,89 @@
+.account {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+    background-color: #fff;
+    width: 80%;
+    margin: 0 auto 30px;
+    flex-direction: column;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    text-align: left;
+  }
+  
+  .account b {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .account p {
+    font-size: 0.8rem;
+    margin: 0;
+  }
+  
+  .account h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 0.8rem;
+    font-weight: normal;
+  }
+  
+  .account-content-wrapper {
+    width: 100%;
+    flex: 1;
+  }
+  
+  .account button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    border-color: #00bc77;
+    background-color: #00bc77;
+    color: #fff;
+  }
+  
+  @media (min-width: 768px) {
+    .account {
+      flex-direction: row;
+    }
+  
+    .account h3 {
+      font-size: 0.9rem;
+    }
+  
+    .account b {
+      font-size: 2rem;
+    }
+  
+    .account p {
+      font-size: 0.9rem;
+    }
+  
+    .account-content-wrapper.cta {
+      flex: 0;
+    }
+  
+    .account button {
+      width: 200px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .account h3 {
+      font-size: 1rem;
+    }
+  
+    .account b {
+      font-size: 2.5rem;
+    }
+  
+    .account p {
+      font-size: 1rem;
+    }
+  }
+  
