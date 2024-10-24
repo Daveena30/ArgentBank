@@ -1,0 +1,73 @@
+.profile header button {
+    border-color: #00bc77;
+    background-color: #00bc77;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+  }
+  
+  header button {
+    margin-bottom: 30px;
+  }
+  
+  .profile form p {
+    color : #fff;
+  }
+  
+  .profil {
+    background-color: #12002B;
+    padding: 20px 35px 35px 35px;
+    color: white;
+  }
+  
+  .profile h1 {
+    color: #fff;
+  }
+  
+  .profile form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+  
+  .profile form h2 {
+    text-align: center;
+  }
+  
+  .profile form p {
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+  
+  .profile input {
+    margin-top: 10px;
+    height: 45px;
+    width: 300px;
+    font-size: 16px;
+    color: #000;
+    font-weight: 700;
+  }
+  
+  .profile label {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #FFF;
+    font-weight: 700;
+  }
+  
+  .profil-buttons {
+    margin-top: 25px;
+  }
+  
+  .profil-buttons button {
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+  
+  @media (min-width: 1024px) {
+    .profil {
+      padding: 20px 100px 50px 100px;
+    }
+  }
+  

@@ -1,8 +1,15 @@
 import React from "react";
-
+import { useNavigate } from 'react-router-dom';
 import "./login.css";
 
 const Login = () => {
+
+    const navigate = useNavigate();
+
+    const handleSubmit = (e) => {
+        e.preventDefault(); 
+        navigate('/profile'); 
+      };
 
     const [password, setPassword] = ('')
     const [username, setUsername] = ('')
@@ -11,7 +18,7 @@ const Login = () => {
             <section className="sign-in-content">
                 <i className="fa fa-user-circle sign-in-icon"></i>
                 <h2>Sign In</h2>
-                <form>
+                <form onSubmit={handleSubmit}>
 
                 <div class="input-wrapper">
                         <label for="username">Username</label>
