@@ -28,21 +28,53 @@ nav h1 {
     color: #42b983;
   }
   
-  /*.main-nav-item {
+  nav a:last-child {
     text-decoration: none;
     margin-right: 0.5rem;
   }
   
-  .main-nav-item:hover {
+  nav a:last-child:hover {
     text-decoration: underline;
   }
   
-  .main-nav-logo {
+  nav a:first-child {
     display: flex;
     align-items: center;
   }
   
-  .main-nav-logo-image {
+  nav img {
     max-width: 100%;
     width: 200px;
-  }*/
+  }
+
+  nav i {
+    padding-right: 4px;
+  }
+  
+  nav p {
+    margin : 2px 0;
+  }
+  
+  nav ul{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  @media (min-width: 768px) {
+    nav {
+      font-size: 1rem;
+    }
+  
+    nav img {
+      max-width: 100%;
+      width: 200px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    nav {
+      font-size: 1.2rem;
+    }
+  }
+  

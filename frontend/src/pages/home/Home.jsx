@@ -6,9 +6,6 @@ import iconMoney from "../../img/icon-money.webp";
 import iconSecurity from "../../img/icon-security.webp";
 
 
-
-
-
 const Home = () => {
     const imageFeature = {
         "icon-chat.webp": iconChat,
@@ -44,4 +41,4 @@ const Home = () => {
     )
 
 }
-export default Home
+export default Home;

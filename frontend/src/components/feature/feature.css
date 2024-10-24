@@ -25,4 +25,32 @@
     font-weight: bold;
     margin-bottom: 0.5rem;
   }
+
+  @media (min-width: 768px) {
+    figure {
+      padding: 40px 0;
+    }
+  
+    figure img {
+      width: 100px;
+    }
+  
+    figure h3 {
+      font-size: 1.25rem;
+    }
+  
+    figure p {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    figure h3 {
+      font-size: 1.50rem;
+    }
+  
+    figure p {
+      font-size: 1.2rem;
+    }
+  }
   

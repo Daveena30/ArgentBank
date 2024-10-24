@@ -1,27 +1,16 @@
 import React from "react";
-import "./login.css"
+import "./login.css";
 
 const Login = () => {
-
     return (
-        <main class="login bg-dark">
-          <section class="sign-in-content">
-            <i class="fa fa-user-circle sign-in-icon"></i>
-            <h2>Sign In</h2>
+        <main className="login bg-dark">
+            <section className="sign-in-content">
+                <i className="fa fa-user-circle sign-in-icon"></i>
+                <h2>Sign In</h2>
             </section>
-            </main>
-    )
-}
+        </main>
+    );
+};
 
+export default Login;
 
-
-
-
-
-
-
-
-
-
-
-export default Login
