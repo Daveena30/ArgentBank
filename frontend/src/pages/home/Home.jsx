@@ -1,58 +1,45 @@
 import './home.css'
+import Feature from "../../components/feature/feature";
+import features from "../../data/features.json";
+import iconChat from "../../img/icon-chat.webp";
+import iconMoney from "../../img/icon-money.webp";
+import iconSecurity from "../../img/icon-security.webp";
 
 
 
-function Home() {
+
+
+const Home = () => {
+    const imageFeature = {
+        "icon-chat.webp": iconChat,
+        "icon-money.webp": iconMoney,
+        "icon-security.webp": iconSecurity
+    }
+
     return (
             
             <main>
-                <div class="hero">
+                <div class="home">
                     <section class="hero-content">
-                        <h2 class="sr-only">Promoted Content</h2>
-                        <p class="subtitle">No fees.</p>
-                        <p class="subtitle">No minimum deposit.</p>
-                        <p class="subtitle">High interest rates.</p>
-                        <p class="text">Open a savings account with Argent Bank today!</p>
+                        <p>No fees.</p>
+                        <p>No minimum deposit.</p>
+                        <p>High interest rates.</p>
+                        <p>Open a savings account with Argent Bank today!</p>
                     </section>
                 </div>
+
                 <section class="features">
-                    <h2 class="sr-only">Features</h2>
-                    <div class="feature-item">
-                        <img src="./img/icon-chat.png" alt="Chat Icon" class="feature-icon" />
-                        <h3 class="feature-item-title">You are our #1 priority</h3>
-                        <p>
-                            Need to talk to a representative? You can get in touch through our
-                            24/7 chat or through a phone call in less than 5 minutes.
-                        </p>
-                    </div>
-                    <div class="feature-item">
-                        <img
-                            src="./img/icon-money.png"
-                            alt="Chat Icon"
-                            class="feature-icon"
+                    {features.map((feature) => (
+                        <Feature
+                        key={feature.title}
+                        image={imageFeature[feature.image]}
+                        alt={feature.title}
+                        text={feature.text}
                         />
-                        <h3 class="feature-item-title">More savings means higher rates</h3>
-                        <p>
-                            The more you save with us, the higher your interest rate will be!
-                        </p>
-                    </div>
-                    <div class="feature-item">
-                        <img
-                            src="./img/icon-security.png"
-                            alt="Chat Icon"
-                            class="feature-icon"
-                        />
-                        <h3 class="feature-item-title">Security you can trust</h3>
-                        <p>
-                            We use top of the line encryption to make sure your data and money
-                            is always safe.
-                        </p>
-                    </div>
+                    ))}
+                    
                 </section>
             </main>
-            
-
-
         
     )
 
