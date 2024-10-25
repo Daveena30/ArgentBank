@@ -5,8 +5,8 @@ import accountData from '../../data/account.json'
 
 
 const Profile = () => {
-    const Tony = 'Tony Stark';
-    const Jarvis = 'Jarvis AI';
+    const Tony = 'Tony ';
+    const Jarvis = 'Jarvis';
 
 
     return (
