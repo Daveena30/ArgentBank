@@ -33,4 +33,7 @@ node_modules
 # Runtime configuration for swagger app
 config/runtime.yaml
 
+# Environment variables
+.env
+
 .DS_Store
