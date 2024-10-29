@@ -14,7 +14,7 @@ const Nav = () => {
                 </a>
     
                 <a href="/login">
-                    <i class="fa fa-user-circle"></i>
+                    <i className="fa fa-user-circle"></i>
                     Sign In
                 </a>
         </nav>

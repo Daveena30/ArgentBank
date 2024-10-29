@@ -16,8 +16,8 @@ const Home = () => {
     return (
             
             <main>
-                <div class="home">
-                    <section class="hero-content">
+                <div className="home">
+                    <section className="hero-content">
                         <p>No fees.</p>
                         <p>No minimum deposit.</p>
                         <p>High interest rates.</p>
@@ -25,7 +25,7 @@ const Home = () => {
                     </section>
                 </div>
 
-                <section class="features">
+                <section className="features">
                     {features.map((feature) => (
                         <Feature
                         key={feature.title}

@@ -1,39 +1,49 @@
-// src/redux/reducers.js
 import { createSlice } from '@reduxjs/toolkit';
-import { login } from './actions'; // Assurez-vous que le chemin est correct
+import { login, logout, getProfile, editUsername } from './actions';
 
 const initialState = {
-  token: null,
   isAuthenticated: false,
+  user: { firstName: "", lastName: "", userName: "" },
+  token: null,
   error: null,
 };
 
-const authReducer = createSlice({
+const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {
-    logout(state) {
-      state.token = null; // Réinitialiser le token lors de la déconnexion
-      state.isAuthenticated = false; // Réinitialiser l'état d'authentification
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(login.fulfilled, (state, action) => {
-        state.isAuthenticated = true; // Utilisateur connecté
-        state.token = action.payload; // Stocker le token
-        state.error = null; // Réinitialiser l'erreur
+        state.isAuthenticated = true;
+        state.token = action.payload.token;
+        state.user = action.payload.user;
+        state.error = null;
       })
       .addCase(login.rejected, (state, action) => {
-        state.isAuthenticated = false; // Utilisateur non connecté
-        state.error = action.payload; // Gérer l'erreur
+        state.error = action.payload;
+      })
+      .addCase(getProfile.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.error = null;
+      })
+      .addCase(getProfile.rejected, (state, action) => {
+        state.error = action.payload;
+      })
+      .addCase(editUsername.fulfilled, (state, action) => {
+        state.user.userName = action.payload;
+        state.error = null;
+      })
+      .addCase(editUsername.rejected, (state, action) => {
+        state.error = action.payload;
+      })
+      .addCase(logout.fulfilled, (state) => {
+        state.isAuthenticated = false;
+        state.token = null;
+        state.user = { firstName: "", lastName: "", userName: "" };
+        state.error = null;
       });
   },
 });
 
-// Exporter le reducer et les actions
-export const { logout } = authReducer.actions;
-export default authReducer.reducer;
-
-
-
+export default authSlice.reducer;
