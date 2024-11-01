@@ -7,13 +7,17 @@ html {
   color: #2c3e50;
 }
 
-
-
-body {
-  margin: 0;
+#root {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+body,
+ul,
+figure {
+  margin: 0;
+  
 }
 
 ul {

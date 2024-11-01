@@ -12,10 +12,14 @@ const Profile = () => {
   const [editing, setEditing] = useState(false); 
 
   useEffect(() => {
-    if (isAuthenticated) {
+     if (isAuthenticated) {
       dispatch(getProfile());
     }
   }, [dispatch, isAuthenticated]);
+
+  if (!user || !user.firstName) { // Vérifiez que user est défini
+    return <div>Loading...</div>; // Afficher un indicateur de chargement ou une erreur
+  }
   const edit = (e) => {
     e.preventDefault();
     setEditing(true); // Mettre à jour l'état pour afficher le formulaire
@@ -32,10 +36,6 @@ const Profile = () => {
     dispatch(editUsername(newUsername));
     setEditing(false);
   };
-
-  if (!user) {
-    return <div>Loading...</div>; // Ou un message d'erreur approprié
-  }
 
   return (
     <main class="profile bg-dark">

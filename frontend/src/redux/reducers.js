@@ -23,6 +23,8 @@ const authSlice = createSlice({
       .addCase(login.rejected, (state, action) => {
         state.error = action.payload;
       })
+
+      
       .addCase(getProfile.fulfilled, (state, action) => {
         state.user = action.payload;
         state.error = null;

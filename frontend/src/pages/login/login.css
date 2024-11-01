@@ -5,9 +5,10 @@
   font-size: 1.1rem;
   font-weight: bold;
   margin-top: 1rem;
-  border-color: #00bc77;
+  border: none;
   background-color: #00bc77;
   color: #fff;
+  text-decoration: underline;
 }
 
 .sign-in-content {
@@ -20,15 +21,15 @@
 }
 
 .sign-in-icon {
-  font-size: 5rem;
+  font-size: 3rem;
 }
 
-.input-remember {
+.form-check {
   display: flex;
 }
 
-.input-remember label {
-  margin-left: 0.25rem;
+.input-label-rememberMe {
+  margin-left: 60px;
 }
 
 .input-wrapper {
@@ -36,21 +37,24 @@
   flex-direction: column;
   text-align: left;
   margin-bottom: 1rem;
+  
 }
 
 .input-wrapper label {
   font-weight: bold;
   margin-bottom: 6px;
+  
 }
 
 .input-wrapper input {
   padding: 5px;
   font-size: 1.2rem;
+  
 }
 
-.login i {
-  display: none;
-}
+
+
+
 
 @media (min-width: 768px) {
   .login i {
