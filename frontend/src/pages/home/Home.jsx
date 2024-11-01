@@ -30,7 +30,8 @@ const Home = () => {
                         <Feature
                         key={feature.title}
                         image={imageFeature[feature.image]}
-                        alt={feature.title}
+                        alt={feature.alt}
+                        title={feature.title}
                         text={feature.text}
                         />
                     ))}

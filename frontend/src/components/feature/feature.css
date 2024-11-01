@@ -1,56 +1,55 @@
 .features {
-    display: flex;
-    flex-direction: row;
-  }
-  
+  display: flex;
+  flex-direction: row;
+}
+
+figure {
+  flex: 1;
+  padding: 10px 10px;
+}
+
+figure p {
+  font-size: 0.8rem;
+}
+
+figure img {
+  width: 30px;
+  border: 10px solid #00bc77;
+  border-radius: 50%;
+  padding: 1rem;
+}
+
+figure h3 {
+  color: #222;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
   figure {
-    flex: 1;
-    padding: 10px 10px;
-  }
-  
-  figure p {
-    font-size: 0.8rem;
-  }
-  
-  figure img {
-    width: 30px;
-    border: 10px solid #00bc77;
-    border-radius: 50%;
-    padding: 1rem;
-  }
-  
-  figure h3 {
-    color: #222;
-    font-size: 1rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+    padding: 40px 0;
   }
 
-  @media (min-width: 768px) {
-    figure {
-      padding: 40px 0;
-    }
-  
-    figure img {
-      width: 100px;
-    }
-  
-    figure h3 {
-      font-size: 1.25rem;
-    }
-  
-    figure p {
-      font-size: 1rem;
-    }
+  figure img {
+    width: 100px;
   }
-  
-  @media (min-width: 1024px) {
-    figure h3 {
-      font-size: 1.50rem;
-    }
-  
-    figure p {
-      font-size: 1.2rem;
-    }
+
+  figure h3 {
+    font-size: 1.25rem;
   }
-  
+
+  figure p {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  figure h3 {
+    font-size: 1.50rem;
+  }
+
+  figure p {
+    font-size: 1.2rem;
+  }
+}
