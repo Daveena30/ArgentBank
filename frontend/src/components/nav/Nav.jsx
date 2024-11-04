@@ -33,7 +33,7 @@ const Nav = () => {
                         <li>
                         <Link className='nav-item' to='/profile'>
                             <i className="fa fa-user-circle"></i>
-                            <p>{user && user.firstName ? user.firstName : 'User'}</p>
+                            <p>{user && user.userName ? user.userName : 'User'}</p>
                         </Link>
                         </li>
                         <li>
