@@ -1,19 +1,19 @@
 .features {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 figure {
   flex: 1;
-  padding: 10px 10px;
+  padding: 40px 10px;
 }
 
 figure p {
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 figure img {
-  width: 30px;
+  width: 100px;
   border: 10px solid #00bc77;
   border-radius: 50%;
   padding: 1rem;
@@ -21,12 +21,18 @@ figure img {
 
 figure h3 {
   color: #222;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 920px) {
+
+  .features {
+    display: flex;
+    flex-direction: row;
+  }
+
   figure {
     padding: 40px 0;
   }
