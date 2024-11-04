@@ -6,6 +6,9 @@
 figure {
   flex: 1;
   padding: 40px 10px;
+  gap: 70px;
+  margin: 0 30px;
+
 }
 
 figure p {
@@ -45,9 +48,6 @@ figure h3 {
     font-size: 1.25rem;
   }
 
-  figure p {
-    font-size: 1rem;
-  }
 }
 
 @media (min-width: 1024px) {
@@ -56,6 +56,6 @@ figure h3 {
   }
 
   figure p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 }
