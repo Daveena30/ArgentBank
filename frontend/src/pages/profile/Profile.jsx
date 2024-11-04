@@ -38,7 +38,7 @@ const Profile = () => {
   };
 
   return (
-    <main class="profile bg-dark">
+    <main className="profile bg-dark">
       {!editing ? ( 
       <header>
         <h1>Welcome back<br />{user.firstName} {user.lastName}!</h1>

@@ -38,7 +38,7 @@ const Nav = () => {
                         </li>
                         <li>
                         <a href='/' onClick={signOut}>
-                            <i class="fa fa-sign-out"></i>
+                            <i className="fa fa-sign-out"></i>
                             <p>Sign Out</p>
                         </a>
                         </li>

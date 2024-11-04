@@ -22,8 +22,9 @@ const Login = () => {
 
         if (response.meta.requestStatus === 'fulfilled') {
             navigate('/profile'); // Redirection vers la page profil en cas de succès
-        } else {
-            alert('Invalid email or password');
+        } else if (error) {
+            // Show a specific error message if available
+            alert(error || 'Invalid email or password');
         }
     };
 
@@ -41,6 +42,7 @@ const Login = () => {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
+                            autoComplete="username" // Helps avoid autocomplete warnings
                         />
                     </div>
 
@@ -52,6 +54,7 @@ const Login = () => {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
+                            autoComplete="current-password" // Helps avoid autocomplete warnings
                         />
                     </div>
 
