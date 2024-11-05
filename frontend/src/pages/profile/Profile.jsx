@@ -46,29 +46,35 @@ const Profile = () => {
       </header>
       ) : (
         <form onSubmit={save}>
-          <p>Edit user name</p>
+          <p>Edit User info</p>
 
-          <label htmlFor="userName">User name :</label>
+          <div className="form-group">
+          <label htmlFor="userName">User Name:</label>
           <input
             type="text"
             id="userName"
             defaultValue={user.userName}
             required
           />
-          <label htmlFor="firstName">First name</label>
+          </div>
+          <div className="form-group">
+          <label htmlFor="firstName">First Name:</label>
           <input
             type="text"
             id="firstName"
             defaultValue={user.firstName}
             disabled
           />
-          <label htmlFor="lastName">Last name</label>
+          </div>
+          <div className="form-group">
+          <label htmlFor="lastName">Last Name:</label>
           <input
             type="text"
             id="lastName"
             defaultValue={user.lastName}
             disabled
           />
+          </div>
           <section className='profil-buttons'>
             <button type="submit">Save</button>
             <button type="button" onClick={cancel}>Cancel</button>
