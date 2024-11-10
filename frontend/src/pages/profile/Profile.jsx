@@ -64,6 +64,7 @@ const Profile = () => {
             id="firstName"
             defaultValue={user.firstName}
             disabled
+            style={{background: "#D3D3D3"}}
           />
           </div>
           <div className="form-group">
@@ -73,6 +74,7 @@ const Profile = () => {
             id="lastName"
             defaultValue={user.lastName}
             disabled
+            style={{background: "#D3D3D3"}}
           />
           </div>
           <section className='profil-buttons'>

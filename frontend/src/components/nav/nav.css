@@ -33,7 +33,7 @@ nav h1 {
     margin-right: 0.5rem;
   }
   
-  nav a:last-child:hover {
+  nav a:hover {
     text-decoration: underline;
   }
   
@@ -47,8 +47,10 @@ nav h1 {
     width: 200px;
   }
 
+
   nav i {
     padding-right: 4px;
+    
   }
   
   nav p {
