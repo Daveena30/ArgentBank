@@ -65,11 +65,11 @@ paths:
         - User Module
       summary: User Profile API
       description: API for fetching a user profile
-      #produces:
-       # - application/json
+      produces:
+        - application/json
       responses:
         '200':
-          description: User profile retrieved successully
+          description: User profile retrieved successfully
           schema:
             $ref: '#/definitions/ApiResponse'
         '400':
@@ -81,7 +81,7 @@ paths:
         - Bearer: []
       tags:
         - User Module
-      summary: User Profile API
+      summary: Update User Profile
       description: API for updating a user profile
       parameters:
         - in: body
@@ -94,7 +94,7 @@ paths:
         - application/json
       responses:
         '200':
-          description: User profile retrieved successully
+          description: User profile updated successfully
           schema:
             $ref: '#/definitions/ApiResponse'
         '400':
@@ -102,20 +102,35 @@ paths:
         '500':
           description: Internal Server Error
 
-  #!transactions :
   /transactions:
     get:
       security:
         - Bearer: []
       tags:
         - Transaction Module
-      summary: Retrieve monthly transactions
-      description: Read User monthly transactions grouped by account
+      summary: Retrieve monthly transactions grouped by account
+      description: Retrieve the current month’s transactions grouped by account type (checking, saving, credit card)
+      parameters:
+        - in: query
+          name: month
+          description: Month for which to retrieve transactions
+          required: true
+          type: string
+          format: date
+        - in: query
+          name: accountType
+          description: Type of account to filter transactions (checking, saving, credit card)
+          required: false
+          type: string
+          enum:
+            - checking
+            - saving
+            - credit card
       produces:
         - application/json
       responses:
         '200':
-          description: Transaction retrieved successully
+          description: Transactions retrieved successfully
           schema:
             type: array
             items:
@@ -128,25 +143,26 @@ paths:
           description: Not found
         '500':
           description: Internal Server Error
+
   /transactions/{id}:
     get:
       security:
         - Bearer: []
       tags:
         - Transaction Module
-      summary: Specific transaction
-      description: Read User specific transaction
+      summary: Retrieve specific transaction details
+      description: Retrieve details of a specific transaction by ID
       parameters:
         - in: path
           name: id
-          description: Transaction id
+          description: Transaction ID
           required: true
           type: integer
       produces:
         - application/json
       responses:
         '200':
-          description: Transaction retrieved successully
+          description: Transaction retrieved successfully
           schema:
             $ref: '#/definitions/SpecificTransaction'
         '400':
@@ -162,12 +178,12 @@ paths:
         - Bearer: []
       tags:
         - Transaction Module
-      summary: Update transaction 
-      description: Update transaction infos
+      summary: Update transaction details
+      description: Update details of a specific transaction
       parameters:
         - in: path
           name: id
-          description: Transaction id
+          description: Transaction ID
           required: true
           type: integer
         - in: body
@@ -180,7 +196,7 @@ paths:
         - application/json
       responses:
         '200':
-          description: Transaction updated successully
+          description: Transaction updated successfully
           schema:
             $ref: '#/definitions/BasicResponse'
         '400':
@@ -191,11 +207,13 @@ paths:
           description: Not found 
         '500':
           description: Internal Server Error
+
 securityDefinitions:
   Bearer:
     type: apiKey
     name: Authorization
     in: header
+
 definitions:
   User:
     properties:
@@ -214,6 +232,7 @@ definitions:
       userName:
         type: string
         description: user public name
+
   Login:
     properties:
       email:
@@ -222,6 +241,7 @@ definitions:
       password:
         type: string
         description: user password
+
   ApiResponse:
     type: object
     properties:
@@ -236,16 +256,19 @@ definitions:
             type: string
           email:
             type: string
+
   LoginResponse:
     type: object
     properties:
       token:
         type: string
+
   UserProfile:
     type: object
     properties:
       userName:
         type: string
+
   Account:
     type: object
     properties:
@@ -259,6 +282,7 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Transaction'
+
   Transaction:
     type: object
     properties:
@@ -273,6 +297,7 @@ definitions:
         type: number
       balance:
         type: number
+
   SpecificTransaction:
     type: object
     properties:
@@ -293,6 +318,7 @@ definitions:
         type: string
       note:
         type: string
+
   UpdateSpecificTransaction:
     type: object
     properties:
@@ -300,6 +326,7 @@ definitions:
         type: string
       note:
         type: string
+
   BasicResponse:
     type: object
     properties:
