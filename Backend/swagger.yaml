@@ -102,6 +102,7 @@ paths:
         '500':
           description: Internal Server Error
 
+  #!transactions :
   /transactions:
     get:
       security:
