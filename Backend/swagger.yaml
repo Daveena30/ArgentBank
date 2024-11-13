@@ -33,6 +33,7 @@ paths:
           description: Invalid Fields
         '500':
           description: Internal Server Error
+
   /user/signup:
     post:
       tags:
@@ -57,6 +58,7 @@ paths:
           description: Invalid Fields
         '500':
           description: Internal Server Error
+
   /user/profile:
     get:
       security:
@@ -102,22 +104,26 @@ paths:
         '500':
           description: Internal Server Error
 
-  #!transactions :
-  /transactions:
+  # Transactions module with specific account paths
+  /user/accounts/{accountId}/transactions:
     get:
       security:
         - Bearer: []
       tags:
         - Transaction Module
-      summary: Retrieve monthly transactions grouped by account
-      description: Retrieve the current month’s transactions grouped by account type (checking, saving, credit card)
+      summary: Retrieve Transactions
+      description: Retrieve transactions for a specific account, optionally filtering by month and account type.
       parameters:
-        - in: query
-          name: month
-          description: Month for which to retrieve transactions
+        - in: path
+          name: accountId
+          description: Unique identifier of the user account
           required: true
           type: string
-          format: date
+        - in: query
+          name: month
+          description: Month for which transactions are requested (defaults to current month if not provided).
+          required: false
+          type: string
         - in: query
           name: accountType
           description: Type of account to filter transactions (checking, saving, credit card)
@@ -135,7 +141,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/Account'
+              $ref: '#/definitions/Transaction'
         '400':
           description: Bad request
         '401':
@@ -145,18 +151,23 @@ paths:
         '500':
           description: Internal Server Error
 
-  /transactions/{id}:
+  /user/accounts/{accountId}/transactions/{transactionId}:
     get:
       security:
         - Bearer: []
       tags:
         - Transaction Module
-      summary: Retrieve specific transaction details
-      description: Retrieve details of a specific transaction by ID
+      summary: Retrieve Transaction Details
+      description: Retrieve details of a specific transaction.
       parameters:
         - in: path
-          name: id
-          description: Transaction ID
+          name: accountId
+          description: Unique identifier of the user account.
+          required: true
+          type: string
+        - in: path
+          name: transactionId
+          description: Unique identifier of the transaction.
           required: true
           type: integer
       produces:
@@ -179,12 +190,17 @@ paths:
         - Bearer: []
       tags:
         - Transaction Module
-      summary: Update transaction details
-      description: Update details of a specific transaction
+      summary: Update Transaction Details
+      description: Update details of a specific transaction.
       parameters:
         - in: path
-          name: id
-          description: Transaction ID
+          name: accountId
+          description: Unique identifier of the user account.
+          required: true
+          type: string
+        - in: path
+          name: transactionId
+          description: Unique identifier of the transaction.
           required: true
           type: integer
         - in: body
@@ -205,7 +221,7 @@ paths:
         '401':
           description: Unauthorized
         '404':
-          description: Not found 
+          description: Not found
         '500':
           description: Internal Server Error
 
@@ -270,55 +286,56 @@ definitions:
       userName:
         type: string
 
-  Account:
-    type: object
-    properties:
-      accountId:
-        type: string
-      accountNumber:
-        type: number
-      accountBalance:
-        type: number
-      transactions:
-        type: array
-        items:
-          $ref: '#/definitions/Transaction'
-
   Transaction:
     type: object
     properties:
-      id:
-        type: string
-      date:
-        type: string
-        format: date
-      description:
-        type: string
+      transactionId:
+        type: number
+        description: Unique identifier of the transaction.
       amount:
         type: number
-      balance:
-        type: number
+        format: float
+        description: Amount of the transaction.
+      date:
+        type: string
+        format: date-time
+        description: Date and time of the transaction.
+      description:
+        type: object
+        properties:
+          title:
+            type: string
+          type:
+            type: string
+          category:
+            type: string
+          note:
+            type: string
+        description: Description of the transaction.
 
   SpecificTransaction:
     type: object
     properties:
-      id:
+      transactionId:
         type: integer
-      date:
-        type: string
-        format: date
-      description:
-        type: string
       amount:
         type: number
-      balance:
-        type: number
-      type:
+        format: float
+      date:
         type: string
-      category:
-        type: string
-      note:
-        type: string
+        format: date-time
+      description:
+        type: object
+        properties:
+          title:
+            type: string
+          type:
+            type: string
+          category:
+            type: string
+          note:
+            type: string
+        description: Description of the transaction.
 
   UpdateSpecificTransaction:
     type: object
